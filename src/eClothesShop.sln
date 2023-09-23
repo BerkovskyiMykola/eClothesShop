@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CB97CA2F-B721-4439-BAF7-7162152F2964}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateways", "ApiGateways", "{3C938448-F4DB-4DC1-A089-A7498AD0A964}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{816BF27D-EDAA-4F4C-BF9F-0DED0A052A4B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{638FB70E-EB4B-4770-BE94-3A47FAAB9C5F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web Apps", "Web Apps", "{60CCA7CC-66A8-42CF-BE98-AEAA0434AFB1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E9ADB2CB-A70F-4198-B0DA-98D860F3CEDD}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{E8CF20D4-CA1E-4D80-91B2-E475D70E35B1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8CF20D4-CA1E-4D80-91B2-E475D70E35B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8CF20D4-CA1E-4D80-91B2-E475D70E35B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8CF20D4-CA1E-4D80-91B2-E475D70E35B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8CF20D4-CA1E-4D80-91B2-E475D70E35B1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3C938448-F4DB-4DC1-A089-A7498AD0A964} = {CB97CA2F-B721-4439-BAF7-7162152F2964}
+		{816BF27D-EDAA-4F4C-BF9F-0DED0A052A4B} = {CB97CA2F-B721-4439-BAF7-7162152F2964}
+		{638FB70E-EB4B-4770-BE94-3A47FAAB9C5F} = {CB97CA2F-B721-4439-BAF7-7162152F2964}
+		{60CCA7CC-66A8-42CF-BE98-AEAA0434AFB1} = {CB97CA2F-B721-4439-BAF7-7162152F2964}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C64649DD-BD1E-456F-A2AC-ECF1159EAB91}
+	EndGlobalSection
+EndGlobal
