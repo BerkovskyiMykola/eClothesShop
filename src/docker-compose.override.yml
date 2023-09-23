@@ -1,3 +1,55 @@
 version: '3.4'
 
 services:
+  seq:
+    environment:
+      - ACCEPT_EULA=Y
+    ports:
+      - 7000:80
+
+  mssql-server:
+    environment:
+        SA_PASSWORD: SwN12345678
+        ACCEPT_EULA: Y
+    restart: always
+    ports:
+        - 1433:1433
+    volumes:
+      - mssql-server-data:/var/opt/mssql
+
+  pgsql-server:
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    restart: always
+    ports:
+      - 5432:5432
+    volumes: 
+      - pgsql-server-data:/var/lib/postgresql/data
+
+  mongo-server:
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo-server-data:/data/db
+
+  redis-server:
+    ports:
+      - 6379:6379
+    volumes:
+      - redis-server-data:/data
+
+  rabbitmq:
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    restart: always
+    ports:
+      - 5672:5672
+      - 15672:15672
+
+volumes:
+  mssql-server-data:
+  pgsql-server-data:
+  mongo-server-data:
+  redis-server-data:

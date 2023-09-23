@@ -1,3 +1,20 @@
 version: '3.4'
 
 services:
+  seq:
+    image: datalust/seq:2023
+
+  mssql-server:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+
+  pgsql-server:
+    image: postgres:16
+
+  mongo-server:
+    image: mongo:6
+
+  redis-server:
+    image: redis:7.2.1
+
+  rabbitmq:
+    image: rabbitmq:3.12.6-management-alpine
