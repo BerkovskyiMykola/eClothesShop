@@ -18,3 +18,12 @@ services:
 
   rabbitmq:
     image: rabbitmq:3.12.6-management-alpine
+
+  identity-api:
+    image: ${DOCKER_REGISTRY-}identityapi
+    build:
+      context: .
+      dockerfile: Services/IdentityAndUserManagement/Identity.API/Dockerfile
+    depends_on:
+      - mssql-server
+      - seq

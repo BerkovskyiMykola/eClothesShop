@@ -48,6 +48,14 @@ services:
       - 5672:5672
       - 15672:15672
 
+  identity-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - IdentityDBConnectionString=Server=mssql-server;Database=Services.IdentityDB;User Id=sa;Password=SwN12345678;Trust Server Certificate=true;
+      - SeqServerUrl=http://seq
+    ports:
+      - 8000:80
+
 volumes:
   mssql-server-data:
   pgsql-server-data:
