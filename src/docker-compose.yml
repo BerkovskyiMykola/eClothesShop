@@ -27,3 +27,13 @@ services:
     depends_on:
       - mssql-server
       - seq
+
+  usermanagement-api:
+    image: ${DOCKER_REGISTRY-}usermanagementapi
+    build:
+      context: .
+      dockerfile: Services/IdentityAndUserManagement/UserManagement.API/Dockerfile
+    depends_on:
+      - mssql-server
+      - mongo-server
+      - seq

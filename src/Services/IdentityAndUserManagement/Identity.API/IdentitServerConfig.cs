@@ -17,7 +17,13 @@ public static class IdentitServerConfig
     {
         return new List<ApiResource>
         {
-            
+            new ApiResource {
+                Name = "user-management",
+                DisplayName = "User Management Service",
+                Scopes = new List<string> {
+                    "user-management"
+                }
+            },
         };
     }
 
@@ -25,7 +31,7 @@ public static class IdentitServerConfig
     {
         return new List<ApiScope>
         {
-            
+            new ApiScope("user-management") {  },
         };
     }
 
@@ -33,7 +39,18 @@ public static class IdentitServerConfig
     {
         return new List<Client>
         {
-            
+            new Client
+            {
+                ClientId = "user-management-swagger-ui",
+                ClientName = "User Management Swagger UI",
+                AllowedGrantTypes = GrantTypes.Implicit,
+                AllowAccessTokensViaBrowser = true,
+
+                RedirectUris = { $"{configuration["UserManagementApi"]}/swagger/oauth2-redirect.html" },
+                PostLogoutRedirectUris = { $"{configuration["UserManagementApi"]}/swagger/" },
+
+                AllowedScopes = { "user-management" },
+            },
         };
     }
 }
