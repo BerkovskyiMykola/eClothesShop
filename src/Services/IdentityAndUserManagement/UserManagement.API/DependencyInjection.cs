@@ -1,10 +1,11 @@
 ﻿using Identity.DAL;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
-using System.IdentityModel.Tokens.Jwt;
 using Microsoft.OpenApi.Models;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace UserManagement.API;
 
@@ -13,6 +14,10 @@ public static class DependencyInjection
     public static IServiceCollection ConfigureServices(this IServiceCollection services, IConfiguration configuration)
     {
         services
+            .AddSwagger(configuration)
+            .AddControllers(configuration)
+            .AddCors(configuration)
+            .AddOptions(configuration)
             .AddDbContexts(configuration)
             .AddIdentity(configuration)
             .AddAuthentication(configuration)
@@ -23,6 +28,8 @@ public static class DependencyInjection
 
     private static IServiceCollection AddSwagger(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddEndpointsApiExplorer();
+
         services.AddSwaggerGen(options =>
         {
             options.SwaggerDoc("v1", new OpenApiInfo
@@ -127,6 +134,56 @@ public static class DependencyInjection
             configuration["IdentityDBConnectionString"]!,
             name: "IdentityDB-check",
             tags: new string[] { "IdentityDB" });
+
+        return services;
+    }
+
+    private static IServiceCollection AddControllers(this IServiceCollection services, IConfiguration configuration)
+    {
+        // Add framework services.
+        services.AddControllers(options =>
+        {
+
+        });
+
+        return services;
+    }
+
+    private static IServiceCollection AddCors(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddCors(options =>
+        {
+            options.AddPolicy("CorsPolicy",
+                builder => builder
+                .SetIsOriginAllowed((host) => true)
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
+        });
+
+        return services;
+    }
+
+    private static IServiceCollection AddOptions(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddOptions();
+        services.Configure<ApiBehaviorOptions>(options =>
+        {
+            options.InvalidModelStateResponseFactory = context =>
+            {
+                var problemDetails = new ValidationProblemDetails(context.ModelState)
+                {
+                    Instance = context.HttpContext.Request.Path,
+                    Status = StatusCodes.Status400BadRequest,
+                    Detail = "Please refer to the errors property for additional details."
+                };
+
+                return new BadRequestObjectResult(problemDetails)
+                {
+                    ContentTypes = { "application/problem+json", "application/problem+xml" }
+                };
+            };
+        });
 
         return services;
     }

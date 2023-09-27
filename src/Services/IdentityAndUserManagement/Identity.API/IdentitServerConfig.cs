@@ -43,13 +43,12 @@ public static class IdentitServerConfig
             {
                 ClientId = "user-management-swagger-ui",
                 ClientName = "User Management Swagger UI",
-                AllowedGrantTypes = GrantTypes.Implicit,
+                RequireClientSecret = false,
+                AllowedGrantTypes = GrantTypes.Code,
                 AllowAccessTokensViaBrowser = true,
-
-                RedirectUris = { $"{configuration["UserManagementApi"]}/swagger/oauth2-redirect.html" },
-                PostLogoutRedirectUris = { $"{configuration["UserManagementApi"]}/swagger/" },
-
-                AllowedScopes = { "user-management" },
+                RedirectUris = { $"{configuration["UserManagementApiExternal"]}/swagger/oauth2-redirect.html" },
+                AllowedCorsOrigins = { $"{configuration["UserManagementApiExternal"]}" },
+                AllowedScopes = { "openid", "profile", "user-management" },
             },
         };
     }

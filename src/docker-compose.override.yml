@@ -52,6 +52,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - IdentityDBConnectionString=Server=mssql-server;Database=Services.IdentityDB;User Id=sa;Password=SwN12345678;Trust Server Certificate=true;
+      - UserManagementApiExternal=http://localhost:8001
       - SeqServerUrl=http://seq
     ports:
       - 8000:80
@@ -60,6 +61,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - IdentityDBConnectionString=Server=mssql-server;Database=Services.IdentityDB;User Id=sa;Password=SwN12345678;Trust Server Certificate=true;
+      - IdentityUrlInternal=http://identity-api
+      - IdentityUrlExternal=http://localhost:8000
       - SeqServerUrl=http://seq
     ports:
       - 8001:80

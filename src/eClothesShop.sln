@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identity.DAL", "Services\Id
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identity.API", "Services\IdentityAndUserManagement\Identity.API\Identity.API.csproj", "{73E8E6EA-14B8-46F3-9396-3BBAC7E8A12B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.API", "Services\IdentityAndUserManagement\UserManagement.API\UserManagement.API.csproj", "{D4006D89-BA1E-4BD5-8374-0C67A8535C26}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.API", "Services\IdentityAndUserManagement\UserManagement.API\UserManagement.API.csproj", "{699907DA-E377-491F-8558-B145951299CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,10 +49,10 @@ Global
 		{73E8E6EA-14B8-46F3-9396-3BBAC7E8A12B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73E8E6EA-14B8-46F3-9396-3BBAC7E8A12B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73E8E6EA-14B8-46F3-9396-3BBAC7E8A12B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D4006D89-BA1E-4BD5-8374-0C67A8535C26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D4006D89-BA1E-4BD5-8374-0C67A8535C26}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D4006D89-BA1E-4BD5-8374-0C67A8535C26}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D4006D89-BA1E-4BD5-8374-0C67A8535C26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{699907DA-E377-491F-8558-B145951299CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{699907DA-E377-491F-8558-B145951299CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{699907DA-E377-491F-8558-B145951299CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{699907DA-E377-491F-8558-B145951299CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,7 +66,7 @@ Global
 		{76CE3281-2702-4131-82CF-F41CF7080340} = {638FB70E-EB4B-4770-BE94-3A47FAAB9C5F}
 		{B60B7DF5-25F4-4C4F-ACC5-FDF03AFFCF91} = {76CE3281-2702-4131-82CF-F41CF7080340}
 		{73E8E6EA-14B8-46F3-9396-3BBAC7E8A12B} = {76CE3281-2702-4131-82CF-F41CF7080340}
-		{D4006D89-BA1E-4BD5-8374-0C67A8535C26} = {76CE3281-2702-4131-82CF-F41CF7080340}
+		{699907DA-E377-491F-8558-B145951299CF} = {76CE3281-2702-4131-82CF-F41CF7080340}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C64649DD-BD1E-456F-A2AC-ECF1159EAB91}
