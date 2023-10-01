@@ -1,14 +1,16 @@
-﻿using Identity.DAL;
+﻿using Identity.API.Configurations;
+using Identity.API.Infrastructure.Configuration;
+using Identity.DAL;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
-namespace Identity.API;
+namespace Identity.API.Configurations;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection ConfigureServices(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection RegisterServices(this IServiceCollection services, IConfiguration configuration)
     {
         services
             .AddDbContexts(configuration)

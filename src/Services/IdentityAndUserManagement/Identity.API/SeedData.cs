@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Polly;
-using System.Reflection.Metadata;
 
 namespace Identity.API;
 
