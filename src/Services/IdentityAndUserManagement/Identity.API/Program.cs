@@ -1,5 +1,5 @@
-using Identity.API;
 using Identity.API.Configurations;
+using Identity.API.Startup;
 using Serilog;
 using Serilog.Events;
 
@@ -25,12 +25,9 @@ try
     // Apply database migration automatically. Note that this approach is not
     // recommended for production scenarios. Consider generating SQL scripts from
     // migrations instead.
-    using (var scope = app.Services.CreateScope())
-    {
-        await SeedData.EnsureIdentitySeedData(scope, app.Configuration, app.Logger);
-    }
+    app.ApplyMigrations();
 
-    await app.RunAsync();
+    app.Run();
 }
 catch (Exception ex)
 {
