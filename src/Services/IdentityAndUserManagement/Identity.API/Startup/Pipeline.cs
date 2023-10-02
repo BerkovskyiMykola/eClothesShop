@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 namespace Identity.API.Configurations;
 
-public static class Middleware
+public static class Pipeline
 {
-    public static WebApplication RegisterMiddlewares(this WebApplication app)
+    public static WebApplication RegisterPipeline(this WebApplication app)
     {
         if (app.Environment.IsDevelopment())
         {

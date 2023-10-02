@@ -18,7 +18,7 @@ try
 
     var app = builder.Build();
 
-    app.RegisterMiddlewares();
+    app.RegisterPipeline();
 
     Log.Information("Applying migrations ({ApplicationContext})...", AppName);
 
