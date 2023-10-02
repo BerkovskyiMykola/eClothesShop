@@ -1,4 +1,5 @@
-﻿using Identity.API.Configurations;
+﻿using Duende.IdentityServer;
+using Identity.API.Configurations;
 using Identity.API.Infrastructure.Configuration;
 using Identity.DAL;
 using Microsoft.AspNetCore.Identity;
@@ -80,14 +81,14 @@ public static class DependencyInjection
     private static IServiceCollection AddAuthentication(this IServiceCollection services, IConfiguration configuration)
     {
         services
-            .AddAuthentication();
-        //.AddGoogle(options =>
-        //{
-        //    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+            .AddAuthentication()
+            .AddGoogle(options =>
+            {
+                options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
 
-        //    options.ClientId = configuration["Authentication:Google:ClientId"]!;
-        //    options.ClientSecret = configuration["Authentication:Google:ClientSecret"]!;
-        //});
+                options.ClientId = configuration["Authentication:Google:ClientId"]!;
+                options.ClientSecret = configuration["Authentication:Google:ClientSecret"]!;
+            });
 
         return services;
     }

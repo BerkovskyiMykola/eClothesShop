@@ -129,7 +129,7 @@ public class Callback : PageModel
         var identityResult = await _userManager.CreateAsync(user);
         if (!identityResult.Succeeded) throw new Exception(identityResult.Errors.First().Description);
 
-        identityResult = await _userManager.AddToRoleAsync(user, "User");
+        identityResult = await _userManager.AddToRoleAsync(user, "Customer");
         if (!identityResult.Succeeded) throw new Exception(identityResult.Errors.First().Description);
 
         identityResult = await _userManager.AddLoginAsync(user, new UserLoginInfo(provider, providerUserId, provider));
