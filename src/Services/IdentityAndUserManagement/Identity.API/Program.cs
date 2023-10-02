@@ -1,3 +1,4 @@
+using Identity.API;
 using Identity.API.Configurations;
 using Serilog;
 using Serilog.Events;
@@ -18,6 +19,16 @@ try
     var app = builder.Build();
 
     app.RegisterMiddlewares();
+
+    Log.Information("Applying migrations ({ApplicationContext})...", AppName);
+
+    // Apply database migration automatically. Note that this approach is not
+    // recommended for production scenarios. Consider generating SQL scripts from
+    // migrations instead.
+    using (var scope = app.Services.CreateScope())
+    {
+        await SeedData.EnsureIdentitySeedData(scope, app.Configuration, app.Logger);
+    }
 
     await app.RunAsync();
 }
