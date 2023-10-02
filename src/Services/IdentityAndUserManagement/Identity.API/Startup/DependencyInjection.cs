@@ -3,7 +3,6 @@ using Identity.API.Configurations;
 using Identity.API.Infrastructure.Configuration;
 using Identity.DAL;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
@@ -19,8 +18,7 @@ public static class DependencyInjection
             .AddIdentityServer(configuration)
             .AddAuthentication(configuration)
             .AddHealthCheck(configuration)
-            .AddOptions(configuration)
-            .AddRazorPages();
+            .AddRazorPages(configuration);
 
         return services;
     }
@@ -107,26 +105,10 @@ public static class DependencyInjection
         return services;
     }
 
-    private static IServiceCollection AddOptions(this IServiceCollection services, IConfiguration configuration)
+    private static IServiceCollection AddRazorPages(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddOptions();
-        services.Configure<ApiBehaviorOptions>(options =>
-        {
-            options.InvalidModelStateResponseFactory = context =>
-            {
-                var problemDetails = new ValidationProblemDetails(context.ModelState)
-                {
-                    Instance = context.HttpContext.Request.Path,
-                    Status = StatusCodes.Status400BadRequest,
-                    Detail = "Please refer to the errors property for additional details."
-                };
-
-                return new BadRequestObjectResult(problemDetails)
-                {
-                    ContentTypes = { "application/problem+json", "application/problem+xml" }
-                };
-            };
-        });
+        services
+            .AddRazorPages();
 
         return services;
     }
