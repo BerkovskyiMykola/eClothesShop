@@ -1,6 +1,6 @@
 ﻿using Duende.IdentityServer;
 using Identity.API.Configurations;
-using Identity.API.Infrastructure.Configuration;
+using Identity.API.Infrastructure.Configurations;
 using Identity.DAL;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

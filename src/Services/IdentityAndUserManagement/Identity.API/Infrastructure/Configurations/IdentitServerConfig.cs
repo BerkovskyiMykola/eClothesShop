@@ -1,6 +1,6 @@
 ﻿using Duende.IdentityServer.Models;
 
-namespace Identity.API.Infrastructure.Configuration;
+namespace Identity.API.Infrastructure.Configurations;
 
 public static class IdentitServerConfig
 {
